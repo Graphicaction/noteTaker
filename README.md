@@ -23,7 +23,7 @@ npm i express
 node server or nodemon server
 ```
 ## <a name="link"></a>Deployed Link:
--   (https://graphicaction.github.io/resposive_portfolio/)
+-   (https://note-maintainer.herokuapp.com/)
 
 ![Screenshot](public/assets/images/noteScreen.png "Html: Note taker")
 
