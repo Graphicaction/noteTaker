@@ -41,7 +41,8 @@ module.exports = function(app) {
         const noteId =req.params.id;
         notes.forEach((note, i) => {
             if(noteId == note.id){
-                notes.splice(i,1); 
+                notes.splice(i,1);
+                console.log(`Record "${note.title}" is deleted`); 
                 //write to file db.json
                 fs.writeFileSync(createDb,JSON.stringify(notes), (err) => {
                     // throws an error, you could also catch it here
