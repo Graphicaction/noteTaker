@@ -25,7 +25,7 @@ module.exports = function(app) {
         newNote.id = id + 1;
         notes.push(newNote);
         //write to file db.json
-        await fs.writeFileSync(createDb,JSON.stringify(notes), (err) => {
+        await fs.writeFileSync(path.resolve(createDb),JSON.stringify(notes), (err) => {
             // throws an error, you could also catch it here
             if (err) throw err;
         });
@@ -46,7 +46,7 @@ module.exports = function(app) {
             }
         });
         
-        await fs.writeFileSync(createDb,JSON.stringify(notes), (err) => {
+        await fs.writeFileSync(path.resolve(createDb),JSON.stringify(notes), (err) => {
             // throws an error, you could also catch it here
             if (err) throw err;
         });
