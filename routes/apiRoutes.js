@@ -7,7 +7,7 @@ const createDb = path.resolve(__dirname, "../db/db.json");
 module.exports = function(app) {
     //Getting all notes from notes json file
     app.get("/api/notes", async (req, res) => {
-        let dbNotes = await fs.readFile(path.resolve(createDb), "utf8");
+        let dbNotes = await fs.readFileSync(path.resolve(createDb), "utf8");
         res.json(JSON.parse(dbNotes));
     });
     //Posting new note to notes json file
@@ -25,7 +25,7 @@ module.exports = function(app) {
         newNote.id = id + 1;
         notes.push(newNote);
         //write to file db.json
-        await fs.writeFile(createDb,JSON.stringify(notes), (err) => {
+        await fs.writeFileSync(createDb,JSON.stringify(notes), (err) => {
             // throws an error, you could also catch it here
             if (err) throw err;
         });
@@ -45,8 +45,8 @@ module.exports = function(app) {
                 console.log(`Record "${note.title}" is deleted`); 
             }
         });
-        //write to file db.json
-        await fs.writeFile(createDb,JSON.stringify(notes), (err) => {
+        
+        await fs.writeFileSync(createDb,JSON.stringify(notes), (err) => {
             // throws an error, you could also catch it here
             if (err) throw err;
         });
